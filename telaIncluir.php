@@ -1,0 +1,47 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: telaLogin.php");
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incluir Senha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="caixaDados">
+
+        <img src="imagens/duenteTampandoOlhos.png" alt="mascote tampando os olhos">
+
+        <h1>INCLUIR NOVA SENHA</h1>
+
+        <form action="salvarSenha.php" method="POST">
+            <input type="text" name="nome" placeholder="conta ou site" required>
+            <input type="text" name="login_usuario" placeholder="Login" required>
+            <input type="password" name="senha" placeholder="senha" required>
+
+            <div class="btnEsquerdoDireito">
+                <button type="submit">Incluir</button>
+                <button onclick="window.location.href='telaAcesso.php'" style="background-color: rgb(88, 121, 80)">Voltar</button>
+            </div>
+        </form>
+
+        <p style="margin: 0 auto; text-align: center;">© 2025 Gerenciador de Senhas.
+                Todos os direitos reservados.
+            </p>
+
+    </div>
+
+</body>
+
+</html>

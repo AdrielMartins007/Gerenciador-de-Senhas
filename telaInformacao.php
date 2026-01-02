@@ -1,0 +1,82 @@
+<?php
+session_start();
+require "conexao.php";
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="caixaDados">
+        <h1>
+            ARMAZENAMENTO E SEGURANÇA
+        </h1>
+
+        <div class="txtJustificado">
+
+            <div>
+                <p class="tituloInfo">Armazenamento seguro das senhas:</p>
+            </div>
+
+            <p>Este aplicativo foi desenvolvido em conformidade com a Lei Geral de Proteção de Dados Pessoais – LGPD
+                (Lei nº 13.709/2018), adotando medidas técnicas e organizacionais para garantir a segurança, a
+                privacidade e o uso responsável das informações dos usuários.<br><br>
+                Os dados pessoais coletados são utilizados exclusivamente para o funcionamento do sistema, respeitando
+                os princípios previstos na LGPD, como finalidade, necessidade, transparência e segurança. As senhas e
+                informações sensíveis são armazenadas de forma criptografada, garantindo que apenas o próprio usuário
+                tenha acesso aos seus dados.<br><br>O aplicativo assegura ao usuário os direitos previstos na LGPD,
+                incluindo:<br><br>
+
+                Art. 6º – Princípios do tratamento de dados pessoais<br><br>
+
+                Art. 7º – Tratamento de dados mediante consentimento do titular<br><br>
+
+                Art. 8º – Consentimento claro e específico<br><br>
+
+                Art. 18 – Direitos do titular dos dados (acesso, exclusão e controle)<br><br>
+
+                Art. 46 – Medidas de segurança para proteção dos dados<br><br>
+
+                Dessa forma, o sistema reforça o compromisso com a privacidade, confidencialidade e proteção das
+                informações pessoais, garantindo uma experiência segura e confiável para todos os usuários.
+                <br>
+
+            <div>
+                <p class="tituloInfo">Acesso exclusivo do usuário:</p>
+            </div>
+
+            <p>Cada senha fica vinculada apenas ao usuário logado. O sistema utiliza controle de sessão, o que garante
+                que somente o próprio cliente consiga visualizar, cadastrar ou excluir suas senhas pessoais.
+            </p>
+
+            <div>
+                <p class="tituloInfo">Privacidade em primeiro lugar:</p>
+            </div>
+
+            <p>Nem administradores nem terceiros conseguem visualizar as senhas em formato legível. A descriptografia
+                acontece somente no momento em que o próprio usuário solicita a visualização, reforçando a segurança
+                reforçando a privacidade dos dados.
+            </p>
+
+            <div class="imgDireita">
+                <img src="imagens/duendeProtegendo.png" alt="duende com o escudo na mao protegendo">
+            </div>
+
+        </div>
+
+        <button class="btnCentro" onclick="window.location.href='telaAcesso.php'" style="background-color: rgb(88, 121, 80)">
+            voltar
+        </button>
+
+    </div>
+
+</body>
+
+</html>
