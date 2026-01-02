@@ -45,7 +45,7 @@ $nomeUsuario = $_SESSION["nome"];
                 <a href="telaInformacao.php">Entenda como funciona</a>.
 
             <div style="margin: 18px;">
-                <p class="textoSaibaMais" style="font-size: 16px;">duvidas? <a href="telaFaleConosco.php" style="font-size: 16px;">fale conosco.</a></p>
+                <p class="textoSaibaMais" style="font-size: 16px;">duvidas? <a href="telaFaleConosco.php" >fale conosco.</a></p>
             </div>
         </div>
 
