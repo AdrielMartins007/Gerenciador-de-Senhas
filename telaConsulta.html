@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Senhas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="caixaDados">
+
+        <img src="imagens/duendeAssobiando.png" alt="duende feliz">
+
+        <div>
+            <p class="site-senha"><strong>Conta:</strong></p>
+            <p class="site-senha"><strong>Login:</strong></p>
+
+            <p class="site-senha"><strong>Senha:</strong></p>
+            <input type="password" id="senha>
+
+                    <div class=" btnEsquerdoDireito">
+            <button type="button" onclick="toggleSenha()">
+                Visualizar
+            </button>
+
+            <button type="button" onclick="if (confirm('Deseja excluir esta senha?')) {
+                            window.location.href='excluirSenha.php?id=';
+                        }">
+                Excluir
+            </button>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>

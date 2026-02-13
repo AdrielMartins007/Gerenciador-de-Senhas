@@ -1,14 +1,3 @@
-<?php
-session_start();
-
-if (!isset($_SESSION["usuario_id"])) {
-    header("Location: telaLogin.php");
-    exit;
-}
-
-$nomeUsuario = $_SESSION["nome"];
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -22,11 +11,6 @@ $nomeUsuario = $_SESSION["nome"];
 <body>
 
     <div class="caixaDados">
-
-        <div class="perguntaAcesso">
-            Olá <?= htmlspecialchars($nomeUsuario) ?>!<br>
-            O que deseja realizar?
-        </div>
 
         <img id="dundebemVindo" src="imagens/mascotePerguntando.png" alt="mascote fazendo uma pergunta">
 
@@ -45,7 +29,8 @@ $nomeUsuario = $_SESSION["nome"];
                 <a href="telaInformacao.php">Entenda como funciona</a>.
 
             <div style="margin: 18px;">
-                <p class="textoSaibaMais" style="font-size: 16px;">duvidas? <a href="telaFaleConosco.php" >fale conosco.</a></p>
+                <p class="textoSaibaMais" style="font-size: 16px;">duvidas? <a href="telaFaleConosco.php">fale
+                        conosco.</a></p>
             </div>
         </div>
 
