@@ -21,7 +21,7 @@ main{
     flex-direction: column;
     background-image: linear-gradient(to bottom, rgb(239, 233, 233), rgb(235, 232, 232));
     max-width: 500px;
-    height: 82%;
+    height: 600px;
     border-radius: 20px;
     box-sizing: border-box;
     padding: 20px;
@@ -38,8 +38,10 @@ main img{
 main h1{
     text-align: center;
     margin: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 50px;
+    font-size: 55px;
+    background-image: linear-gradient(to right, rgb(54, 47, 47), rgb(88, 122, 82), rgb(54, 47, 47));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* TEXTOS DE ENTRADA DE DADOS */
@@ -53,6 +55,73 @@ main form .entrada input{
     border-radius: 10px;
     border: 1px solid black;
     font-size: 20px;
+}
+
+/* TELA DE CADASTRO - DADOS DE ENTRADA*/
+main #entrada-cadastro{
+    margin-top: 100px;
+}
+
+/* TELA DE CADASTRO - MOSTRAR DADOS DE CONTA */
+main .mostrar-conta{
+    margin: 20px auto;
+    font-size: 20px;
+    line-height: 40px;
+    color: rgb(23, 72, 23);
+}
+
+/* PARTE ONDE SERÁ MOSTRADA A SENHA */
+main #mostrar-senha input{
+    display: block;
+    margin: 20px auto;
+    padding: 20px 20px;
+    width: 80%;
+    border-radius: 20px;
+    border: none;
+    font-size: 20px;
+    text-align: center;
+    cursor: auto;
+}
+
+/* MENSAGEM NA TELA DE ACESSO PERGUNTANDO */
+main div#pergunta-acesso{
+    text-align: center;
+    font-size: 18px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: white;
+    width: 85%;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 20px;
+    color: rgb(30, 97, 30);
+}
+
+/* TELA FALE CONOSCO - TELA DE INFORMAÇÕES */
+main div.info{
+    text-align: justify;
+}
+
+/* TELA FALE CONOSCO - MEUS CONTATOS*/
+main div.contato{
+    text-align: center;
+    margin: 20px;
+}
+
+/* TELA FALE CONOSCO - LINKS SOCIAIS*/
+main nav{
+    display: flex;
+    justify-content: space-around;
+    margin: 30px;
+    font-size: 20px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+nav a{
+    text-decoration: none;
+    color: black;
+    color: rgb(30, 97, 30)
 }
 
 input::placeholder{
@@ -71,14 +140,27 @@ main .botao-esq-dir{
     height: 50px;
     border-radius: 10px;
     border: none;
-    background-color: rgb(180, 55, 97);
+    background-color: rgb(17, 90, 5);
+    color: white;
+    font-size: 20px;
+    box-shadow: 0px 2px 3px black;
+}
+
+/* BOTAO DE VOLTAR */
+.botao-voltar{
+    margin: auto;
+    width: 40%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(17, 90, 5);
     color: white;
     font-size: 20px;
     box-shadow: 0px 2px 3px black;
 }
 
 button:hover{
-    background-color: rgb(192, 96, 128);
+    background-color: rgb(97, 146, 95);
     cursor: pointer;
 }
 

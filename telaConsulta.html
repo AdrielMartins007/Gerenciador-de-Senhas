@@ -10,30 +10,26 @@
 
 <body>
 
-    <div class="caixaDados">
+    <main>
 
         <img src="imagens/duendeAssobiando.png" alt="duende feliz">
 
-        <div>
-            <p class="site-senha"><strong>Conta:</strong></p>
-            <p class="site-senha"><strong>Login:</strong></p>
-
-            <p class="site-senha"><strong>Senha:</strong></p>
-            <input type="password" id="senha>
-
-                    <div class=" btnEsquerdoDireito">
-            <button type="button" onclick="toggleSenha()">
-                Visualizar
-            </button>
-
-            <button type="button" onclick="if (confirm('Deseja excluir esta senha?')) {
-                            window.location.href='excluirSenha.php?id=';
-                        }">
-                Excluir
-            </button>
+        <div class="mostrar-conta">
+            <p class="site-senha"><strong>Conta :</strong></p>
+            <p class="site-senha"><strong>Login :</strong></p>
         </div>
-    </div>
-    </div>
+
+        <div id="mostrar-senha">
+            <input type="text" id="senha" readonly>
+        </div>
+
+        <div class="botao-esq-dir">
+            <button>Visualizar</button>
+
+            <button>Excluir</button>
+        </div>
+
+    </main>
 
 </body>
 

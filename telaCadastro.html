@@ -11,29 +11,27 @@
 
 <body>
 
-    <div class="caixaDados">
-        <h1>CADASTRO USUÁRIO</h1>
+    <main>
+        <h1>FAÇA SEU CADASTRO!</h1>
 
-        <img src="imagens/duendeRecepcionado.png" alt="duende dando as boas vindas">
+        <form>
 
-        <form action="salvarUsuario.php" method="POST">
+            <div class="entrada" id="entrada-cadastro">
+                <input type="text" placeholder="nome" required>
 
-            <div>
-                <input type="text" name="nome" placeholder="nome" required>
+                <input type="email" placeholder="email" required>
 
-                <input type="email" name="email" placeholder="email" required>
-
-                <input type="password" name="senha" placeholder="senha" required>
+                <input type="password" placeholder="senha" required>
             </div>
 
-            <div class="botao-centro">
+            <div class="botao-esq-dir">
                 <button type="submit" id="botao-cadastro">
                     Cadastrar
                 </button>
             </div>
 
         </form>
-    </div>
+    </main>
 
 </body>
 
