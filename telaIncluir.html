@@ -8,29 +8,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+<style>
+    .titulo {
+        font-size: 35px;
+    }
+</style>
+
 <body>
 
     <main>
 
         <img src="imagens/duenteTampandoOlhos.png" alt="mascote tampando os olhos">
 
-        <h1>INCLUIR NOVA SENHA</h1>
+        <h1 class="titulo">INCLUIR NOVA SENHA</h1>
 
-        <form action="salvarSenha.php" method="POST">
+        <div id="incluir-senha">
             <input type="text" name="nome" placeholder="conta ou site" required>
             <input type="text" name="login_usuario" placeholder="Login" required>
             <input type="password" name="senha" placeholder="senha" required>
+        </div>
 
-            <div class="btnEsquerdoDireito">
-                <button type="submit">Incluir</button>
-                <button onclick="window.location.href='telaAcesso.php'"
-                    style="background-color: rgb(88, 121, 80)">Voltar</button>
-            </div>
-        </form>
+        <div class="botao-esq-dir">
+            <button>Incluir</button>
+            <button>Voltar</button>
+        </div>
 
-        <p style="margin: 0 auto; text-align: center;">© 2025 Gerenciador de Senhas.
-            Todos os direitos reservados.
-        </p>
+        <footer>
+            <p>© 2025 Gerenciador de Senhas. Todos os direitos reservados.</p>
+        </footer>
 
     </main>
 
