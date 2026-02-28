@@ -44,6 +44,13 @@ main h1{
     -webkit-text-fill-color: transparent;
 }
 
+.entrada{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
 /* TEXTOS DE ENTRADA DE DADOS */
 main form .entrada input{
     width: 80%;
