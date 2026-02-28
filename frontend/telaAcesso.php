@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+
+require_once '../backend/Usuario.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

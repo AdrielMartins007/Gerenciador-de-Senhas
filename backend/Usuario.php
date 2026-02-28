@@ -32,17 +32,17 @@ class Usuario
         return true;
     }
 
-    public function verificar() /* funcao de verificação */ {
+    public function verificar($email, $senha) /* funcao de verificação */ {
         if(!isset($_SESSION['usuarios'])){
             return false;
         }
 
         foreach($_SESSION['usuarios'] as $user){
-            if($user['email'] == $this->email && $user['senha'] == $this->senha){
+            if($user['email'] == $email && $user['senha'] == $senha){
+                return true;
             }
-            return true;
         }
-
         return false;
     }
+    
 }
