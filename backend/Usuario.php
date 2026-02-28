@@ -12,7 +12,7 @@ class Usuario
         $this->email = "";
         $this->senha = "";
 
-        if (!isset($_SESSION['usuarios'])) {
+        if (!isset($_SESSION['usuario'])) {
             $_SESSION['usuario'] = [];
         }
     }
@@ -23,7 +23,7 @@ class Usuario
             $_SESSION['usuario'] = [];
         }
 
-        $_SESSION['usuarios'][] = [
+        $_SESSION['usuario'][] = [
             'nome' => $nome,
             'email' => $email,
             'senha' => $senha
@@ -32,19 +32,14 @@ class Usuario
         return true;
     }
 
-    public function verificar($email, $senha) /* funcao de verificação */ {
-        if(!isset($_SESSION['usuario'])){
-            return false;
-        }
-
-        foreach($_SESSION['usuario'] as $user){
-            if($user['email'] == $email && $user['senha'] == $senha){
+    public function verificar($email, $senha) /* funcao de verificação */
+    {
+        foreach ($_SESSION['usuario'] as $user) {
+            if ($user['email'] == $email && $user['senha'] == $senha) {
+                return true;
             }
-            return true;
         }
 
         return false;
     }
 }
-
-

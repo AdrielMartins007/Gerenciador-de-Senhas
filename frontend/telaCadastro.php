@@ -9,11 +9,10 @@ if(isset($_POST['enviar'])){
     $usuario = new Usuario();
 
     if($usuario->enviarDados($_POST['nome'], $_POST['email'], $_POST['senha'])){
-        header("Location: telaAcesso.php");
         echo "<script>
         alert('CADASTRO REALIZADO COM SUCESSO');
         </script>";
-        exit();
+        header("Location: telaAcesso.php");
     } else {
         echo "<script>
         alert('ERRO!');
@@ -39,7 +38,7 @@ if(isset($_POST['enviar'])){
     <main>
         <h1>FAÇA SEU CADASTRO!</h1>
 
-        <form method="post">
+        <form method="POST">
 
             <div class="entrada" id="entrada-cadastro">
                 <input type="text" placeholder="nome" name="nome" required>

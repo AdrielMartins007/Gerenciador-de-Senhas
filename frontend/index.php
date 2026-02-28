@@ -6,19 +6,26 @@ require_once '../backend/Usuario.php';
 
 if(isset($_POST['entrarConta'])){
 
-    $usuario = new Usuario;
+    $usuario = new Usuario();
 
-    if($usuario->verificar(isset($_POST['email']), $_POST['senha'])){
-        echo "<script>
-        alert('VERIFICAÇÃO CONFIRMADA COM SUCESSO, BEM VINDO!');
+    if($usuario->verificar($_POST['email'], $_POST['senha'])){
+        echo "
+        <script>
+        alert('Dados confirmados, bem vindo!');
         window.location.href = 'telaAcesso.php';
         </script>";
     } else {
-        echo "<script>
-        alert('ERRO! EMAIL OU SENHA INSERIDOS INCORRETAMENTE...');
+        echo "
+        <script>
+        alert('Dados nao confirmados, necessário fazer cadastro...');
+        window.location.href = 'telaCadastro.php';
         </script>";
-        header("Location = index.php");
     }
+}
+
+if(isset($_POST['novoCadastro'])){
+    header("Location: telaCadastro.php");
+    exit();
 }
 
 ?>
@@ -69,4 +76,4 @@ if(isset($_POST['entrarConta'])){
 
 </body>
 
-</html>
+</html> 
