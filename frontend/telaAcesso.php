@@ -4,6 +4,8 @@ session_start();
 
 require_once '../backend/Usuario.php';
 
+foreach($_SESSION['usuario'] as $dado);
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +25,7 @@ require_once '../backend/Usuario.php';
         <img id="dundebemVindo" src="imagens/mascotePerguntando.png" alt="mascote fazendo uma pergunta">
 
         <div id="pergunta-acesso">
-            <h2>Olá, o que deseja realizar?</h2>
+            <h2>Olá, <?php echo $dado['nome'] ?>, o que deseja realizar?</h2>
         </div>
 
         <div class="botao-esq-dir">

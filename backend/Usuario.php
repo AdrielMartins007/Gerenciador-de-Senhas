@@ -12,7 +12,7 @@ class Usuario
         $this->email = "";
         $this->senha = "";
 
-        if (!isset($_SESSION['usuario'])) {
+        if (!isset($_SESSION['usuarios'])) {
             $_SESSION['usuario'] = [];
         }
     }
@@ -23,7 +23,7 @@ class Usuario
             $_SESSION['usuario'] = [];
         }
 
-        $_SESSION['usuario'][] = [
+        $_SESSION['usuarios'][] = [
             'nome' => $nome,
             'email' => $email,
             'senha' => $senha
@@ -39,10 +39,12 @@ class Usuario
 
         foreach($_SESSION['usuario'] as $user){
             if($user['email'] == $email && $user['senha'] == $senha){
-                return true;
             }
+            return true;
         }
+
         return false;
     }
-    
 }
+
+

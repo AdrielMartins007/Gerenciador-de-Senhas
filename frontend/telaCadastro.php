@@ -11,7 +11,7 @@ if(isset($_POST['enviar'])){
     if($usuario->enviarDados($_POST['nome'], $_POST['email'], $_POST['senha'])){
         header("Location: telaAcesso.php");
         echo "<script>
-        alert('Cadastro realizado com sucesso...');
+        alert('CADASTRO REALIZADO COM SUCESSO');
         </script>";
         exit();
     } else {

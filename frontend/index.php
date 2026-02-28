@@ -6,18 +6,18 @@ require_once '../backend/Usuario.php';
 
 if(isset($_POST['entrarConta'])){
 
-    $usuario = new Usuario();
+    $usuario = new Usuario;
 
-    if($usuario->verificar($_POST['email'], $_POST['senha'])){
+    if($usuario->verificar(isset($_POST['email']), $_POST['senha'])){
         echo "<script>
-        alert('Verificação confirmada, Bem vindo...<br>');
+        alert('VERIFICAÇÃO CONFIRMADA COM SUCESSO, BEM VINDO!');
         window.location.href = 'telaAcesso.php';
         </script>";
     } else {
         echo "<script>
-        alert('Ops, vc nao tem conta no app, vamos cadastrar...<br>');
-        window.location.href = 'telaCadastro.php';
+        alert('ERRO! EMAIL OU SENHA INSERIDOS INCORRETAMENTE...');
         </script>";
+        header("Location = index.php");
     }
 }
 
