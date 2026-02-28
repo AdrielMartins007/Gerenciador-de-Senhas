@@ -4,6 +4,23 @@ session_start();
 
 require_once '../backend/Usuario.php';
 
+if(isset($_POST['enviar'])){
+
+    $usuario = new Usuario();
+
+    if($usuario->enviarDados($_POST['nome'], $_POST['email'], $_POST['senha'])){
+        header("Location: telaAcesso.php");
+        echo "<script>
+        alert('Cadastro realizado com sucesso...');
+        </script>";
+        exit();
+    } else {
+        echo "<script>
+        alert('ERRO!');
+        </script>";
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -22,23 +39,24 @@ require_once '../backend/Usuario.php';
     <main>
         <h1>FAÇA SEU CADASTRO!</h1>
 
-        <form>
+        <form method="post">
 
             <div class="entrada" id="entrada-cadastro">
-                <input type="text" placeholder="nome" required>
+                <input type="text" placeholder="nome" name="nome" required>
 
-                <input type="email" placeholder="email" required>
+                <input type="email" placeholder="email" name="email" required>
 
-                <input type="password" placeholder="senha" required>
+                <input type="password" placeholder="senha" name="senha" required>
             </div>
 
             <div class="botao-esq-dir">
-                <button type="submit" id="botao-cadastro">
+                <button type="submit" id="botao-cadastro" name="enviar">
                     Cadastrar
                 </button>
             </div>
 
         </form>
+
     </main>
 
 </body>

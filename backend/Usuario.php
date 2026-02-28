@@ -12,18 +12,18 @@ class Usuario
         $this->email = "";
         $this->senha = "";
 
-        if (!isset($_SESSION['usuarios'])) {
-            $_SESSION['usuarios'] = [];
+        if (!isset($_SESSION['usuario'])) {
+            $_SESSION['usuario'] = [];
         }
     }
 
     public function enviarDados($nome, $email, $senha) /* funcao para o envio de dados */
     {
-        if (!isset($_SESSION['usuarios'])) {
-            $_SESSION['usuarios'] = [];
+        if (!isset($_SESSION['usuario'])) {
+            $_SESSION['usuario'] = [];
         }
 
-        $_SESSION['usuarios'][] = [
+        $_SESSION['usuario'][] = [
             'nome' => $nome,
             'email' => $email,
             'senha' => $senha
@@ -33,11 +33,11 @@ class Usuario
     }
 
     public function verificar($email, $senha) /* funcao de verificação */ {
-        if(!isset($_SESSION['usuarios'])){
+        if(!isset($_SESSION['usuario'])){
             return false;
         }
 
-        foreach($_SESSION['usuarios'] as $user){
+        foreach($_SESSION['usuario'] as $user){
             if($user['email'] == $email && $user['senha'] == $senha){
                 return true;
             }

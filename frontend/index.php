@@ -5,7 +5,8 @@ session_start();
 require_once '../backend/Usuario.php';
 
 if(isset($_POST['entrarConta'])){
-    $usuario = new Usuario;
+
+    $usuario = new Usuario();
 
     if($usuario->verificar($_POST['email'], $_POST['senha'])){
         echo "<script>
@@ -21,7 +22,6 @@ if(isset($_POST['entrarConta'])){
 }
 
 ?>
-git c
 <!DOCTYPE html>
 <html lang="pt-br">
 
