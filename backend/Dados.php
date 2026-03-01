@@ -13,8 +13,11 @@ class Dados
         $this->pdo = $conexao->conectar();
     }
 
-    public function enviarDados($usuario_id, $conta, $email, $senha)
+    public function enviarDados($conta, $email, $senha)
     {
+
+        $usuario_id = $_SESSION['id'];
+
         $sql = $this->pdo->prepare(
             "INSERT INTO contas (usuario_id, conta, emailConta, senhaConta)
              VALUES (:usuario_id, :conta, :email, :senha)"
@@ -28,8 +31,11 @@ class Dados
         return $sql->execute();
     }
 
-    public function mostrarDados($usuario_id)
+    public function mostrarDados()
     {
+
+        $usuario_id = $_SESSION['id'];
+
         $sql = $this->pdo->prepare(
             "SELECT * FROM contas WHERE usuario_id = :usuario_id"
         );

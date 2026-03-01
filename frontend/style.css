@@ -65,10 +65,8 @@ main form .entrada input{
 }
 
 /* TELA INCLUIR - USUARIO INCLUI A SENHA */
-main #incluir-senha input{
-    width: 80%;
-    display: grid;
-    justify-self: center;
+#incluir-senha input{
+    width: 100%;
     padding: 12px;
     margin-bottom: 10px;
     text-align: center;
