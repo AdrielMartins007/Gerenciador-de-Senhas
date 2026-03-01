@@ -1,13 +1,3 @@
-<?php
-
-session_start();
-
-require_once '../backend/Usuario.php';
-
-foreach($_SESSION['usuario'] as $dado);
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -17,7 +7,7 @@ foreach($_SESSION['usuario'] as $dado);
     <title>bem Vindo</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
+""
 <body>
 
     <main>
@@ -25,7 +15,7 @@ foreach($_SESSION['usuario'] as $dado);
         <img id="dundebemVindo" src="imagens/mascotePerguntando.png" alt="mascote fazendo uma pergunta">
 
         <div id="pergunta-acesso">
-            <h2>Olá, <?php echo $dado['nome']; ?>, o que deseja realizar?</h2>
+            <h2>Bem vindo, o que deseja realizar?</h2>
         </div>
 
         <div class="botao-esq-dir">

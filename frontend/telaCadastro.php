@@ -1,27 +1,3 @@
-<?php
-
-session_start(); /* chamando o array global novamente para dentro dessa pagina */
-
-require_once '../backend/Usuario.php'; /* chamando tambem o codigo php com as funcoes */
-
-if(isset($_POST['enviar'])){ /* ao receber o clique do botao enviar... */
-
-    $usuario = new Usuario(); /* ele cria um novo usuario */
-
-    if($usuario->enviarDados($_POST['nome'], $_POST['email'], $_POST['senha'])){ /* e os dados do novo usuario serão mandados para dentro do array */
-        echo "<script>
-        alert('CADASTRO REALIZADO COM SUCESSO');
-        window.location.href = 'telaAcesso.php';
-        </script>";
-    } else {
-        echo "<script>
-        alert('ERRO!');
-        </script>";
-    }
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -38,7 +14,7 @@ if(isset($_POST['enviar'])){ /* ao receber o clique do botao enviar... */
     <main>
         <h1>FAÇA SEU CADASTRO!</h1>
 
-        <form method="POST">
+        <form>
 
             <div class="entrada" id="entrada-cadastro">
                 <input type="text" placeholder="nome" name="nome" required>

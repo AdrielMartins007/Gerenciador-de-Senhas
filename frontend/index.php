@@ -1,34 +1,3 @@
-<?php
-
-session_start(); /* chamando o array global para dentro do site, ou seja, ele vai chamar e trazer todos os valores que estao dentro do array global($_sesssion) */
-
-require_once '../backend/Usuario.php'; /* Chamando o codigo de outra pagina para dentro do nosso site, sem precisar replicar ele novamente */
-
-if(isset($_POST['entrarConta'])){ /* verificando o clique de um botao, ou seja, 'se o botao for clicado...' */
-
-    $usuario = new Usuario(); /* caso ele seja clicado, ele vai criar um novo objeto */
-
-    if($usuario->verificar($_POST['email'], $_POST['senha'])){ /* e esse objeto vai receber os valores que o usuario informar dentro do input 'email' e 'senha', ao mesmo tempo, ele vai chamar a funcao verificar... */
-        echo "
-        <script>
-        alert('Dados confirmados, bem vindo!');
-        window.location.href = 'telaAcesso.php';
-        </script>"; /* aqui é uma funcao javascript para exibir uma mensagem na tela se o retorno for verdadeiro */
-    } else {
-        echo "
-        <script>
-        alert('Dados nao confirmados, necessário fazer cadastro...');
-        window.location.href = 'telaCadastro.php';
-        </script>";
-    }
-}
-
-if(isset($_POST['novoCadastro'])){ /* outro codigo simples, se caso o botao fazer cadastro for clicado, ele vai para uma tela receber os valores do novo usario, que será mandando para dentro do array e assim ele poder fazer acesso de outro lugar com email e senha... */
-    header("Location: telaCadastro.php");
-    exit();
-}
-
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -47,7 +16,7 @@ if(isset($_POST['novoCadastro'])){ /* outro codigo simples, se caso o botao faze
 
         <h1>BEM VINDO!</h1>
 
-        <form method="post">
+        <form>
 
             <div class="entrada">
                 <input type="email" name="email" placeholder="Email" required>
@@ -76,4 +45,4 @@ if(isset($_POST['novoCadastro'])){ /* outro codigo simples, se caso o botao faze
 
 </body>
 
-</html> 
+</html>
