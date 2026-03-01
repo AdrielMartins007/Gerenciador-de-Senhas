@@ -1,3 +1,20 @@
+<?php 
+
+require_once '../backend/Usuario.php';
+
+if(isset($_POST['enviar'])){
+    $usuario = new Usuario();
+    if($usuario->cadastrar($_POST['nome'], $_POST['email'], $_POST['senha'])){
+        echo 
+        "<script>
+        alert('DADOS ENVIADOS COM SUCESSO');
+        window.location.href = 'index.php';
+        </script>";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,7 +31,7 @@
     <main>
         <h1>FAÇA SEU CADASTRO!</h1>
 
-        <form>
+        <form method="post">
 
             <div class="entrada" id="entrada-cadastro">
                 <input type="text" placeholder="nome" name="nome" required>

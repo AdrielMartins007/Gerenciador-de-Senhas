@@ -1,3 +1,35 @@
+<?php
+
+session_start();
+
+require_once '../backend/Usuario.php';
+
+if (isset($_POST['entrarConta'])) {
+
+    $usuario = new Usuario();
+
+    $nome = $usuario->verificar($_POST['email'], $_POST['senha']);
+
+    if ($nome) {
+
+        $_SESSION['nome'] = $nome;
+
+        echo
+        "<script>
+        alert('DADOS CONFIRMADOS! BEM VINDO...');
+        window.location.href = 'telaAcesso.php';
+        </script>";
+    } else {
+
+        echo
+        "<script>
+        alert('OPS, DADOS INCORRETOS...');
+        </script>";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,7 +48,7 @@
 
         <h1>BEM VINDO!</h1>
 
-        <form>
+        <form method="post">
 
             <div class="entrada">
                 <input type="email" name="email" placeholder="Email" required>
@@ -28,7 +60,7 @@
                     Entrar
                 </button>
 
-                <button type="submit" class="botaoEsquerdo" name="novoCadastro">
+                <button type="button" class="botaoEsquerdo" name="novoCadastro" onclick="window.location.href = 'telaCadastro.php'">
                     Fazer Cadastro
                 </button>
             </div>
