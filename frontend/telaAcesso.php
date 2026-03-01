@@ -13,7 +13,7 @@ session_start();
     <title>bem Vindo</title>
     <link rel="stylesheet" href="style.css">
 </head>
-""
+
 <body>
 
     <main>
