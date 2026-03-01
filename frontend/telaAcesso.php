@@ -2,6 +2,12 @@
 
 session_start();
 
+if(isset($_POST['consultar'])){
+    header("Location: telaConsulta.php");
+} else if (isset($_POST['incluir-senha'])){
+    header("Location: telaIncluir.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -14,23 +20,32 @@ session_start();
     <link rel="stylesheet" href="style.css">
 </head>
 
+<style>
+    form #img-tela-acesso{
+        text-align: center;
+    }
+</style>
+
 <body>
 
     <main>
 
-        <img id="dundebemVindo" src="imagens/mascotePerguntando.png" alt="mascote fazendo uma pergunta">
+        <form method="post" id="telaAcesso">
 
-        <div id="pergunta-acesso">
-            <h2>Bem vindo <?php echo $_SESSION['nome']; ?>, o que deseja realizar?</h2>
-        </div>
+            <div id="img-tela-acesso">
+                <img id="dundebemVindo" src="imagens/mascotePerguntando.png" alt="mascote fazendo uma pergunta">
+            </div>
 
-        <div class="botao-esq-dir">
+            <div id="pergunta-acesso">
+                <h2>Bem vindo <?php echo $_SESSION['nome']; ?>, o que deseja realizar?</h2>
+            </div>
 
-            <button>Consultar</button>
+            <div class="botao-esq-dir">
+                <button name="consultar">Consultar</button>
+                <button name="incluir-senha">Incluir senha</button>
+            </div>
 
-            <button>Incluir senha</button>
-
-        </div>
+        </form>
 
     </main>
 

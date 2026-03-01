@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 session_start();
 
@@ -8,23 +8,27 @@ if (isset($_POST['entrarConta'])) {
 
     $usuario = new Usuario();
 
-    $nome = $usuario->verificar($_POST['email'], $_POST['senha']);
+    $dadosUsuario = $usuario->verificar($_POST['email'], $_POST['senha']);
 
-    if ($nome) {
+    if ($dadosUsuario) {
 
-        $_SESSION['nome'] = $nome;
+        $_SESSION['id'] = $dadosUsuario['id'];
+        $_SESSION['nome'] = $dadosUsuario['nome'];
+        $_SESSION['email'] = $dadosUsuario['email'];
 
         echo
         "<script>
         alert('DADOS CONFIRMADOS! BEM VINDO...');
         window.location.href = 'telaAcesso.php';
         </script>";
+
     } else {
 
         echo
         "<script>
         alert('OPS, DADOS INCORRETOS...');
         </script>";
+
     }
 }
 

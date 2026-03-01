@@ -29,24 +29,25 @@ class Usuario
         return true;
     }
 
-
-    // VERIFICAR LOGIN
     public function verificar($email, $senha)
     {
         $sql = $this->pdo->prepare(
-            "SELECT * FROM usuarios WHERE email = ? AND senha = ?"
+            "SELECT * FROM usuarios WHERE email = :email"
         );
 
-        $sql->execute([
-            $email,
-            $senha
-        ]);
+        $sql->bindValue(":email", $email);
+
+        $sql->execute();
 
         if ($sql->rowCount() > 0) {
 
-            $dados = $sql->fetch();
+            $usuario = $sql->fetch(PDO::FETCH_ASSOC);
 
-            return $dados['nome'];
+            if($senha === $usuario['senha']){
+
+                return $usuario;
+
+            }
         }
 
         return false;
