@@ -1,48 +1,49 @@
 <?php
 
-require_once "Conexao.php";
+require_once "Conexao.php"; /* chamando o codigo e a funcao do arquivo de conexao com o banco de dados */
 
-class Dados
+class Dados /* Criação da classe de dados */
 {
 
-    private $pdo;
+    private $pdo; /* Criação da variavel que vai aguardar a conexao */
 
     public function __construct()
     {
-        $conexao = new Conexao();
-        $this->pdo = $conexao->conectar();
+        $conexao = new Conexao(); /* criando um novo objeto de conexao */
+        $this->pdo = $conexao->conectar(); /* variavel de conexao que vai se conectar com o banco de dados quando for chamado */
     }
 
-    public function enviarDados($conta, $email, $senha)
+    public function enviarDados($conta, $email, $senha) /* Criacao da funcao enviar dados que vai receber 3 valores */
     {
 
-        $usuario_id = $_SESSION['id'];
+        $usuario_id = $_SESSION['id']; /* Variavel que pega o valor do id usuario quando ele ta logado */
 
-        $sql = $this->pdo->prepare(
-            "INSERT INTO contas (usuario_id, conta, emailConta, senhaConta)
-             VALUES (:usuario_id, :conta, :email, :senha)"
-        );
+        /* Criacao da variavel com o comando sql para o envio dos dados para o banco de dados */
+        $sql = "INSERT INTO contas (usuario_id, conta, emailConta, senhaConta) VALUES ('$usuario_id', '$conta', '$email', '$senha')";
 
-        $sql->bindValue(":usuario_id", $usuario_id);
-        $sql->bindValue(":conta", $conta);
-        $sql->bindValue(":email", $email);
-        $sql->bindValue(":senha", $senha);
-
-        return $sql->execute();
+        return $this->pdo->query($sql); /* retornando a execução do codigo e o query para a execusao do codigo dentro do $sql, que no caso vai ser mandado para o banco de dados */
     }
 
     public function mostrarDados()
     {
 
-        $usuario_id = $_SESSION['id'];
+        $usuario_id = $_SESSION['id']; /* pegando o id do usuario e inserindo dentro da variavel $usuario_id */
 
-        $sql = $this->pdo->prepare(
-            "SELECT * FROM contas WHERE usuario_id = :usuario_id"
-        );
+        $sql = "SELECT * FROM contas WHERE usuario_id = '$usuario_id'"; /* variavel com o comando sql que será executado dentro do banco de dados */
 
-        $sql->bindValue(":usuario_id", $usuario_id);
-        $sql->execute();
+        $resultado = $this->pdo->query($sql); /* colocando o envio dos dados dentro da variavel $resultado */
 
-        return $sql->fetchAll(PDO::FETCH_ASSOC);
+        return $resultado->fetchAll(PDO::FETCH_ASSOC);
+        /* pedindo o retorno da variavel $resultado com todos os valores dentro do banco de dados. fetchALL pega todos os valores dentro do banco de dados.
+        
+        PDO::FETCH_ASSOC - Significa que vc está pedindo que o retorno seja em forma associativa, no caso, conta, email e senha será retornado o valor de cada um{
+            ex:
+
+                "conta" => "Netflix",
+                "emailConta" => "[email protected]",
+                "senhaConta" => "123"
+        }
+
+        */
     }
 }
