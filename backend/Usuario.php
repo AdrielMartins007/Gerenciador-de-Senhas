@@ -12,41 +12,28 @@ class Usuario
         $this->pdo = $conexao->conectar();
     }
 
-    // CADASTRAR USUÁRIO
     public function cadastrar($nome, $email, $senha)
     {
-        $sql = $this->pdo->prepare(
-            "INSERT INTO usuarios (nome, email, senha)
-             VALUES (?, ?, ?)"
-        );
+        $sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
 
-        $sql->execute([
-            $nome,
-            $email,
-            $senha
-        ]);
+        $this->pdo->query($sql);
 
         return true;
     }
 
     public function verificar($email, $senha)
     {
-        $sql = $this->pdo->prepare(
-            "SELECT * FROM usuarios WHERE email = :email"
-        );
+        $sql = "SELECT * FROM usuarios WHERE email = '$email'";
 
-        $sql->bindValue(":email", $email);
+        $resultado = $this->pdo->query($sql);
 
-        $sql->execute();
+        if ($resultado->rowCount() > 0) {
 
-        if ($sql->rowCount() > 0) {
 
-            $usuario = $sql->fetch(PDO::FETCH_ASSOC);
+            $usuario = $resultado->fetch(PDO::FETCH_ASSOC);
 
-            if($senha === $usuario['senha']){
-
+            if ($senha === $usuario['senha']) {
                 return $usuario;
-
             }
         }
 
